@@ -9,6 +9,10 @@
     <string name="search_title_EditText">Search Title...</string>
     <string name="search_author_EditText">Search Author...</string>
 
+    <!-- Explanation to the user on populating the list -->
+    <string name="defaultTextView">Please enter a book title and/or an author in order to
+        search Google Books and present you with the books matching your search query.</string>
+
     <!-- Error Messages -->
     <string name="no_internet">No internet connection</string>
     <string name="no_books">No books found!</string>

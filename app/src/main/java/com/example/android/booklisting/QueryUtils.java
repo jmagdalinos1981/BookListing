@@ -1,5 +1,6 @@
 package com.example.android.booklisting;
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -23,9 +24,22 @@ import java.util.ArrayList;
 
 public class QueryUtils {
 
+    /** Keys for JSON parsing */
+    private static final String KEY_VOLUMEINFO = "volumeInfo";
+    private static final String KEY_TITLE = "title";
+    private static final String KEY_AUTHORS = "authors";
+    private static final String KEY_DESCRIPTION = "description";
+    private static final String KEY_PAGECOUNT = "pageCount";
+    private static final String KEY_IMAGELINKS = "imageLinks";
+    private static final String KEY_SMALLTHUMBNAIL = "smallThumbnail";
+    private static final String KEY_LANGUAGE = "language";
+    private static final String KEY_PREVIEWLINK = "previewLink";
+
+    public static String errorMessage = null;
+
     /** Tag for the log messages */
     public static final String LOG_TAG = QueryUtils.class.getSimpleName();
-
+    private static Context mContext = MainActivity.mContext;
     /**
      * Create a private constructor because no one should ever create a {@link QueryUtils} object.
      * This class is only meant to hold static variables and methods, which can be accessed
@@ -51,6 +65,7 @@ public class QueryUtils {
         return bookItems;
     }
 
+
     /**
      * Returns new URL object from the given string URL.
      */
@@ -68,6 +83,7 @@ public class QueryUtils {
      * Make an HTTP request to the given URL and return a String as the response.
      */
     private static String makeHTTPRequest(URL url) throws IOException {
+
         // If the url is empty, return early
         String jsonResponse = null;
         if (url == null) {
@@ -138,6 +154,7 @@ public class QueryUtils {
             JSONObject baseJSONObject = new JSONObject(bookDataJSON);
             JSONArray bookArray = baseJSONObject.getJSONArray("items");
 
+            // Variables for JSON parsing
             String title;
             JSONArray authors;
             String author;
@@ -150,53 +167,53 @@ public class QueryUtils {
 
             for (int i = 0; i < bookArray.length(); i++) {
                 JSONObject currentBook = bookArray.getJSONObject(i);
-                JSONObject volumeInfo = currentBook.getJSONObject("volumeInfo");
+                JSONObject volumeInfo = currentBook.getJSONObject(KEY_VOLUMEINFO);
                 // Check if key "title" exists and if yes, return value
-                if (volumeInfo.has("title")) {
-                    title = volumeInfo.getString("title");
+                if (volumeInfo.has(KEY_TITLE)) {
+                    title = volumeInfo.getString(KEY_TITLE);
                 } else {
                     title = null;
                 }
                 // Check if key "authors" exists and if yes, return value
-                if (volumeInfo.has("authors")) {
-                    authors = volumeInfo.getJSONArray("authors");
+                if (volumeInfo.has(KEY_AUTHORS)) {
+                    authors = volumeInfo.getJSONArray(KEY_AUTHORS);
                     author = authors.getString(0);
                 } else {
                     author = null;
                 }
 
                 // Check if key "description" exists and if yes, return value
-                if (volumeInfo.has("description")) {
-                    description = volumeInfo.getString("description");
+                if (volumeInfo.has(KEY_DESCRIPTION)) {
+                    description = volumeInfo.getString(KEY_DESCRIPTION);
                 } else {
                     description = null;
                 }
 
                 // Check if key "pageCount" exists and if yes, return value
-                if (volumeInfo.has("pageCount")) {
-                    pageCount = volumeInfo.getInt("pageCount");
+                if (volumeInfo.has(KEY_PAGECOUNT)) {
+                    pageCount = volumeInfo.getInt(KEY_PAGECOUNT);
                 } else {
                     pageCount = 0;
                 }
 
                 // Check if key "imageLinks" exists and if yes, return value
-                if (volumeInfo.has("imageLinks")) {
-                    imageLinks = volumeInfo.getJSONObject("imageLinks");
-                    smallThumbnail = imageLinks.getString("smallThumbnail");
+                if (volumeInfo.has(KEY_IMAGELINKS)) {
+                    imageLinks = volumeInfo.getJSONObject(KEY_IMAGELINKS);
+                    smallThumbnail = imageLinks.getString(KEY_SMALLTHUMBNAIL);
                 } else {
                     smallThumbnail = null;
                 }
 
                 // Check if key "language" exists and if yes, return value
-                if (volumeInfo.has("language")) {
-                    language = volumeInfo.getString("language");
+                if (volumeInfo.has(KEY_LANGUAGE)) {
+                    language = volumeInfo.getString(KEY_LANGUAGE);
                 } else {
                     language = null;
                 }
 
                 // Check if key "previewLink" exists and if yes, return value
-                if (volumeInfo.has("previewLink")) {
-                    previewLink = volumeInfo.getString("previewLink");
+                if (volumeInfo.has(KEY_PREVIEWLINK)) {
+                    previewLink = volumeInfo.getString(KEY_PREVIEWLINK);
                 } else {
                     previewLink = null;
                 }
@@ -208,6 +225,7 @@ public class QueryUtils {
             }
         } catch (JSONException e) {
             Log.e(LOG_TAG, "Problem parsing the BookItem JSON results", e);
+            errorMessage = "Problem parsing the BookItem JSON results. JSONExcelption: " + e;
         }
 
         // Return the list of BookItems

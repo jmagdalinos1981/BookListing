@@ -15,6 +15,15 @@
         <item name="android:layout_marginTop">@dimen/marginTop_image</item>
         <item name="android:layout_marginBottom">@dimen/marginBottom_image</item>
     </style>
+
+    <!-- Explanation TextView -->
+    <style name="default_TextView">
+        <item name="android:layout_marginBottom">@dimen/marginTop_editText</item>
+        <item name="android:layout_marginLeft">@dimen/marginLeftRight_editText</item>
+        <item name="android:layout_marginRight">@dimen/marginLeftRight_editText</item>
+        <item name="android:gravity">center</item>
+    </style>
+
     <!-- EditText Containers -->
     <style name="editText_Container">
         <item name="android:layout_marginLeft">@dimen/marginLeftRight_editText</item>

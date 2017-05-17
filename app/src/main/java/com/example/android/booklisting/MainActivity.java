@@ -1,5 +1,6 @@
 package com.example.android.booklisting;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,9 @@ import android.widget.Spinner;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     /** Tag for the log messages */
     public static final String LOG_TAG = MainActivity.class.getName();
+
+    /** Context variable so it can be referenced in other activities */
+    public static Context mContext;
 
     /** EditText for user's search */
     EditText searchTitleEditText;
@@ -41,6 +45,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mContext = getApplicationContext();
 
         // Initialize Views
         searchTitleEditText = (EditText) findViewById(R.id.search_title_EditText);

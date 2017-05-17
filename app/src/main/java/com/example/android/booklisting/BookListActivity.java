@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -56,7 +57,7 @@ public class BookListActivity extends AppCompatActivity implements
     private String finalQuery;
 
     /** Initial Query which will be combined with the user's input*/
-    private final String API_INITIAL_QUERY = "https://www.googleapis" +
+    private static final String API_INITIAL_QUERY = "https://www.googleapis" +
             ".com/books/v1/volumes?q=";
 
     @Override
@@ -184,6 +185,10 @@ public class BookListActivity extends AppCompatActivity implements
     public void onLoadFinished(Loader<ArrayList<BookItem>> loader, ArrayList<BookItem> bookItems) {
         // Clear the adapter of previous earthquake data
         bookAdapter.clear();
+        if (QueryUtils.errorMessage != null) {
+            Toast.makeText(MainActivity.mContext, QueryUtils.errorMessage, Toast.LENGTH_SHORT).show();
+            QueryUtils.errorMessage = null;
+        }
 
         // If there is a valid list of {@link BookItem}s, then add them to the adapter's
         // data set. This will trigger the ListView to update.
