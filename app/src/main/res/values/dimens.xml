@@ -1,0 +1,27 @@
+<resources>
+    <!-- activity_main layout -->
+    <!-- Image -->
+    <dimen name="width_height_image">180dp</dimen>
+    <dimen name="marginTop_image">64dp</dimen>
+    <dimen name="marginBottom_image">32dp</dimen>
+
+    <!-- EditTexts -->
+    <dimen name="marginLeftRight_editText">32dp</dimen>
+    <dimen name="marginTop_editText">16dp</dimen>
+
+    <!-- Clear EdiText Buttons -->
+    <dimen name="width_height_clear_button">20dp</dimen>
+    <dimen name="margin_clear_button">8dp</dimen>
+
+
+
+    <!-- book_list)item layout -->
+    <!-- Titles -->
+    <dimen name="margin_titles">8dp</dimen>
+    <!-- TextViews -->
+    <!-- Containers -->
+    <!-- Images -->
+    <dimen name="height_images">188dp</dimen>
+    <dimen name="width_images">128dp</dimen>
+    <dimen name="padding_images">8dp</dimen>
+</resources>

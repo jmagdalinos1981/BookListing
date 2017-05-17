@@ -1,0 +1,79 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- activity_main layout -->
+    <!-- Image -->
+    <style name="main_image">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginTop">@dimen/marginTop_image</item>
+        <item name="android:layout_marginBottom">@dimen/marginBottom_image</item>
+    </style>
+    <!-- EditText Containers -->
+    <style name="editText_Container">
+        <item name="android:layout_marginLeft">@dimen/marginLeftRight_editText</item>
+        <item name="android:layout_marginRight">@dimen/marginLeftRight_editText</item>
+    </style>
+
+    <!-- Clear EdiText Buttons -->
+    <style name="clear_button">
+        <item name="android:background">@drawable/clear_button</item>
+        <item name="android:layout_marginLeft">@dimen/margin_clear_button</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:backgroundTint">@color/colorAccent</item>
+    </style>
+
+    <!-- Search Button -->
+    <style name="search_button">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:backgroundTint">@color/colorAccent</item>
+    </style>
+
+    <!-- Spinner Container-->
+    <style name="spinner_Container">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginTop">@dimen/marginTop_editText</item>
+        <item name="android:layout_marginLeft">@dimen/marginLeftRight_editText</item>
+        <item name="android:layout_marginRight">@dimen/marginLeftRight_editText</item>
+    </style>
+
+    <!-- Spinner -->
+    <style name="spinner">
+        <item name="android:layout_marginLeft">@dimen/margin_clear_button</item>
+        <item name="android:gravity">center</item>
+        <item name="android:backgroundTint">@color/colorAccent</item>
+    </style>
+
+
+    <!-- book_list_item layout -->
+    <!-- Titles -->
+    <style name="bookItemTitles">
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginRight">@dimen/margin_titles</item>
+    </style>
+
+    <!-- TextViews -->
+    <style name="bookItemText">
+        <item name="android:maxLines">4</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <!-- Containers -->
+    <style name="bookItemContainer">
+        <item name="android:layout_marginLeft">@dimen/margin_titles</item>
+        <item name="android:layout_marginRight">@dimen/margin_titles</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <!--  Images -->
+    <style name="bookItemImage">
+        <item name="android:padding">@dimen/padding_images</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+</resources>
