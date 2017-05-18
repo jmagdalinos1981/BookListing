@@ -29,6 +29,12 @@
         <item name="android:layout_marginLeft">@dimen/marginLeftRight_editText</item>
         <item name="android:layout_marginRight">@dimen/marginLeftRight_editText</item>
     </style>
+    
+    <!-- EditTexts -->
+    <style name="editText">
+        <item name="android:maxLines">1</item>
+        <item name="android:inputType">text</item>
+    </style>
 
     <!-- Clear EdiText Buttons -->
     <style name="clear_button">

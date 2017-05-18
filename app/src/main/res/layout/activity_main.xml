@@ -40,8 +40,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:maxLines="1"
-                android:hint="@string/search_title_EditText"/>
+                android:hint="@string/search_title_EditText"
+                style="@style/editText"/>
 
             <Button
                 android:id="@+id/clear_title_button"
@@ -62,8 +62,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:maxLines="1"
-                android:hint="@string/search_author_EditText"/>
+                android:hint="@string/search_author_EditText"
+                style="@style/editText"/>
 
             <Button
                 android:id="@+id/clear_author_button"
